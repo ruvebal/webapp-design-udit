@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Web Design 2025 · Fall
+title: Mobile Application Design and Web Apps 2025 · Fall
 lang: en
 term: 2025-fall
 ---
@@ -23,13 +23,17 @@ This is the course site for **{{ site.data.courses[page.term].en.course_name }}*
 
 Canonical lessons are located in [Web Foundations]({{ site.data.courses[page.term].en.canonical_lessons_base }}).
 
-### Week 1: Setup
+{% comment %} Auto-generated from \_data/lessons/{{ page.term }}/en.yml {% endcomment %}
+{% assign lessons = site.data.lessons[page.term].en %}
+{% assign canon = site.data.courses[page.term].en.canonical_lessons_base %}
+{% if lessons %}
+{% for l in lessons %}
 
-- [Development Environment]({{ site.data.courses[page.term].en.canonical_lessons_base }}/lessons/en/development-environment.html)
-
-### Week 3: Visual Design
-
-- [Typography & Color]({{ site.data.courses[page.term].en.canonical_lessons_base }}/lessons/en/typography-color.html)
+- [{{ l.title }}]({{ canon }}{{ l.path }})
+  {% endfor %}
+  {% else %}
+- Lessons coming soon.
+  {% endif %}
 
 ## Student Projects
 
@@ -45,6 +49,8 @@ Canonical lessons are located in [Web Foundations]({{ site.data.courses[page.ter
 
 ## Resources
 
-- [ATELIER Methodology]({{ site.data.courses[page.term].en.canonical_lessons_base }}/methodology/en/)
-- [Templates & Examples]({{ site.data.courses[page.term].en.canonical_lessons_base }}/templates/)
+- [ATELIER Methodology](https://ruvebal.github.io/web-atelier-udit/methodology/en/)
+- [Templates & Examples](https://github.com/ruvebal/web-atelier-udit)
 - [GitHub Classroom](https://classroom.github.com/) (specific link TBD)
+
+
