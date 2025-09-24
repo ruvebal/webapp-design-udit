@@ -1,9 +1,9 @@
 title: Course Site
 url: https://ruvebal.github.io
 baseurl: /webapp-design-udit
-repository: https://github.com/ruvebal/webapp-design-udit
+repository: ruvebal/webapp-design-udit
 author: Rubén Vega Balbás, PhD
-author_url: https://www.udit.es/professors/ruben-vega-balbas
-author_email: ruben.vega@udit.es
+author_affiliation_url: https://www.udit.es/professors/ruben-vega-balbas
+author_affiliation_email: ruben.vega@udit.es
 author_orcid: https://orcid.org/0000-0001-6862-9081
 author_github: https://github.com/ruvebal
