@@ -1,0 +1,29 @@
+# Sample student entry - copy this template for each student
+# Filename should match student's GitHub username: {username}.yml
+
+handle: sample-student
+name: Lorena Garcia Prados
+email: lorena.garcia@alumnos.udit.es
+github_url: https://github.com/Loregp23
+project_url: https://loregp23.github.io/ProyectoWeb/
+repository_url: https://github.com/Loregp23/ProyectoWeb.git
+
+# Project metadata (filled by student in Week 4)
+title:
+ es: Mi Proyecto Web
+ en: My Web Project
+
+abstract:
+ es: Una breve descripción del proyecto en español
+ en: A brief description of the project in English
+
+# Optional metadata
+tags:
+ - html
+ - css
+ - accessibility
+
+# Submission tracking
+submitted_brief: false
+submitted_metadata: false
+peer_review_completed: false
