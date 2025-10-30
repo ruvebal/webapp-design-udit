@@ -21,17 +21,21 @@
 		<link rel="manifest" href="./manifest.json" />
 	</head>
 	<body>
-		<header>
-			<nav>
-				<ul>
-					<li><a href="#">Home</a></li>
-					<li><a href="#">Features</a></li>
-					<li><a href="./responsive/exercise-1.html">Responsive Design</a></li>
-					<li><a href="./responsive/exercise-2.html">Responsive Design 2</a></li>
-					<li><a href="./animations/index.html">Animations</a></li>
-				</ul>
-			</nav>
-			<!--
+		<input type="radio" name="theme" id="theme-auto" hidden checked />
+		<input type="radio" name="theme" id="theme-light" hidden />
+		<input type="radio" name="theme" id="theme-dark" hidden />
+		<div class="app">
+			<header>
+				<nav>
+					<ul>
+						<li><a href="#">Home</a></li>
+						<li><a href="#">Features</a></li>
+						<li><a href="./responsive/exercise-1.html">Responsive Design</a></li>
+						<li><a href="./responsive/exercise-2.html">Responsive Design 2</a></li>
+						<li><a href="./animations/index.html">Animations</a></li>
+					</ul>
+				</nav>
+				<!--
 				Theme Toggle: Pedagogical Explanation
 
 				This form provides a CSS-only theme toggle. It uses three radio inputs for 'Auto,' 'Light,' and 'Dark' themes. 
@@ -44,35 +48,33 @@
 
 				This approach does not require JavaScript. All logic is handled in CSS using the 'has()' selector and custom properties.
 			-->
-			<form class="cluster" style="justify-content: flex-end; margin-top: var(--space-2)" aria-label="Theme">
-				<input type="radio" name="theme" id="theme-auto" hidden checked />
-				<input type="radio" name="theme" id="theme-light" hidden />
-				<input type="radio" name="theme" id="theme-dark" hidden />
-				<label for="theme-auto" class="btn btn--ghost" style="height: auto; padding: 0.4rem 0.6rem">Auto</label>
-				<label for="theme-light" class="btn btn--ghost" style="height: auto; padding: 0.4rem 0.6rem">Light</label>
-				<label for="theme-dark" class="btn btn--ghost" style="height: auto; padding: 0.4rem 0.6rem">Dark</label>
-			</form>
-		</header>
-		<main>
-			<section>
-				<h1>Welcome to WebApp Design UDIT</h1>
-				<h2>About This WebApp</h2>
-				<p>
-					This is a sample web application design project for UDIT. Explore the features and learn more about modern web
-					development!
-				</p>
-			</section>
-			<section>
-				<h2>Features</h2>
-				<ul>
-					<li>Responsive Design</li>
-					<li>Clean Layout</li>
-					<li>Easy Navigation</li>
-				</ul>
-			</section>
-		</main>
-		<footer>
-			<p>&copy; 2024 WebApp Design UDIT. All rights reserved.</p>
-		</footer>
+				<form class="cluster" style="justify-content: flex-end; margin-top: var(--space-2)" aria-label="Theme">
+					<label for="theme-auto" class="btn btn--ghost" style="height: auto; padding: 0.4rem 0.6rem">Auto</label>
+					<label for="theme-light" class="btn btn--ghost" style="height: auto; padding: 0.4rem 0.6rem">Light</label>
+					<label for="theme-dark" class="btn btn--ghost" style="height: auto; padding: 0.4rem 0.6rem">Dark</label>
+				</form>
+			</header>
+			<main>
+				<section>
+					<h1>Welcome to WebApp Design UDIT</h1>
+					<h2>About This WebApp</h2>
+					<p>
+						This is a sample web application design project for UDIT. Explore the features and learn more about modern web
+						development!
+					</p>
+				</section>
+				<section>
+					<h2>Features</h2>
+					<ul>
+						<li>Responsive Design</li>
+						<li>Clean Layout</li>
+						<li>Easy Navigation</li>
+					</ul>
+				</section>
+			</main>
+			<footer>
+				<p>&copy; 2024 WebApp Design UDIT. All rights reserved.</p>
+			</footer>
+		</div>
 	</body>
 </html>

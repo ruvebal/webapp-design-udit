@@ -1,5 +1,22 @@
-/* The barrel index file */
-/*@import url("https://meyerweb.com/eric/tools/css/reset/reset.css");*/
-@import url('reset.css');
-@import url('types.css');
-@import url('site.css');
+/**
+ * ─────────────────────────────────────────────
+ *  CSS Barrel Index
+ * ─────────────────────────────────────────────
+ *
+ *  This file uses the "barrel pattern" to re-export (import) a collection
+ *  of CSS modules in a single place, making project imports simpler and
+ *  more maintainable. Instead of importing each CSS file individually 
+ *  throughout your project, you only need to import this index file.
+ *
+ *  All base styles, typography, and global site rules are centralized here.
+ * 
+ *  ➡️  Add new @import statements below as your CSS grows!
+ * 
+ *  Learn more: https://bit.ly/css-barrel-pattern
+ *
+ */
+
+@import url("reset.css");
+@import url("types.css");
+@import url("site.css");
+@import url("theme.css");

@@ -22,28 +22,6 @@
 		sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji';
 	--font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
 
-	/* Colors (light palette) */
-	--color-background: #f9fafb;
-	--color-foreground: #1e293b;
-	--color-card: #ffffff;
-	--color-card-foreground: #1e293b;
-	--color-popover: #f1f5f9;
-	--color-popover-foreground: #1e293b;
-	--color-primary: #009ee0; /* Cyan */
-	--color-primary-foreground: #000000;
-	--color-secondary: #ffed00; /* Yellow */
-	--color-secondary-foreground: #000000;
-	--color-accent: #e2007a; /* Magenta */
-	--color-accent-foreground: #ffffff;
-	--color-muted: #334155;
-	--color-muted-foreground: #f1f5f9;
-	--color-border: #e5e7eb;
-	--color-input: #e5e7eb;
-	--color-ring: #1de285;
-	--color-destructive: #ff611f;
-	--color-destructive-foreground: #ffffff;
-	--color-muted-foreground-rgb: 51, 65, 85;
-
 	/* Spacing scale */
 	/* Fluid spacing: small = static, larger = fluid */
 	--space-1: 0.25rem;
@@ -113,85 +91,15 @@
  * - :root.dark allows an explicit .dark class, supporting a manual theme toggle alongside system preference.
  */
 
-@media (prefers-color-scheme: dark) {
-	:root:not(:has(#theme-light:checked)):not(:has(#theme-dark:checked)),
-	:root.dark:not(:has(#theme-light:checked)):not(:has(#theme-dark:checked)) {
-		--color-background: #0f172a;
-		--color-foreground: #f8fafc;
-		--color-card: #1e293b;
-		--color-card-foreground: #f8fafc;
-		--color-popover: #1e293b;
-		--color-popover-foreground: #f8fafc;
-		--color-primary: #e2007a; /* Complementary to Cyan */
-		--color-primary-foreground: #ffffff;
-		--color-secondary: #009ee0; /* Complementary to Yellow */
-		--color-secondary-foreground: #ffffff;
-		--color-accent: #ffed00; /* Complementary to Magenta */
-		--color-accent-foreground: #000000;
-		--color-muted: #94a3b8;
-		--color-muted-foreground: #f1f5f9;
-		--color-destructive: #ff611f;
-		--color-destructive-foreground: #0f172a;
-		--color-border: #334155;
-		--color-input: #334155;
-		--color-ring: #1de285;
-		--color-muted-foreground-rgb: 148, 163, 184;
-		--shadow-s: 0 1px 2px rgba(0, 0, 0, 0.4);
-		--shadow-m: 0 8px 24px rgba(0, 0, 0, 0.35);
-	}
-}
+/* Theme rules are defined in assets/css/theme.css */
 
 /* CSS-only theme toggle  
-   - Explicit :root:has(#theme-light:checked) and :root:has(#theme-dark:checked) take precedence. 
-   - No duplication: Only one place for each color set. */
+   - Explicit #theme-light:checked and #theme-dark:checked (as body siblings) take precedence. 
+   - Uses general sibling combinator to apply variables to subsequent siblings. */
 
-:root:has(#theme-light:checked) {
-	color-scheme: light;
-	--color-background: #f9fafb;
-	--color-foreground: #1e293b;
-	--color-card: #ffffff;
-	--color-card-foreground: #1e293b;
-	--color-popover: #f1f5f9;
-	--color-popover-foreground: #1e293b;
-	--color-primary: #009ee0;
-	--color-primary-foreground: #000000;
-	--color-secondary: #ffed00;
-	--color-secondary-foreground: #000000;
-	--color-accent: #e2007a;
-	--color-accent-foreground: #ffffff;
-	--color-muted: #334155;
-	--color-muted-foreground: #f1f5f9;
-	--color-border: #e5e7eb;
-	--color-input: #e5e7eb;
-	--color-ring: #1de285;
-	--color-destructive: #ff611f;
-	--color-destructive-foreground: #ffffff;
-	--color-muted-foreground-rgb: 51, 65, 85;
-}
+/* Theme rules are defined in assets/css/theme.css */
 
-:root:has(#theme-dark:checked) {
-	color-scheme: dark;
-	--color-background: #0f172a;
-	--color-foreground: #f8fafc;
-	--color-card: #1e293b;
-	--color-card-foreground: #f8fafc;
-	--color-popover: #1e293b;
-	--color-popover-foreground: #f8fafc;
-	--color-primary: #e2007a;
-	--color-primary-foreground: #ffffff;
-	--color-secondary: #009ee0;
-	--color-secondary-foreground: #ffffff;
-	--color-accent: #ffed00;
-	--color-accent-foreground: #000000;
-	--color-muted: #94a3b8;
-	--color-muted-foreground: #f1f5f9;
-	--color-destructive: #ff611f;
-	--color-destructive-foreground: #0f172a;
-	--color-border: #334155;
-	--color-input: #334155;
-	--color-ring: #1de285;
-	--color-muted-foreground-rgb: 148, 163, 184;
-}
+/* Theme rules are defined in assets/css/theme.css */
 
 /* ------------------------------ */
 /* Base & typography              */
@@ -211,8 +119,7 @@ html {
 body {
 	margin: 0;
 	min-height: 100svh;
-	display: grid;
-	grid-template-rows: auto 1fr auto;
+	display: block;
 	background-color: var(--color-background);
 	color: var(--color-foreground);
 	font-family: var(--font-sans);
@@ -322,6 +229,11 @@ video {
 /* ------------------------------ */
 /* Layout                         */
 /* ------------------------------ */
+.app {
+	min-height: 100svh;
+	display: grid;
+	grid-template-rows: auto 1fr auto;
+}
 header,
 main,
 footer {
@@ -431,10 +343,10 @@ form[aria-label='Theme'] label {
 	color: var(--color-foreground);
 }
 
-/* Highlight active label by pairing :has() with :checked */
-:root:has(#theme-auto:checked) label[for='theme-auto'],
-:root:has(#theme-light:checked) label[for='theme-light'],
-:root:has(#theme-dark:checked) label[for='theme-dark'] {
+/* Highlight active label for theme radios */
+:root:has(#theme-auto:checked) form[aria-label='Theme'] label[for='theme-auto'],
+:root:has(#theme-light:checked) form[aria-label='Theme'] label[for='theme-light'],
+:root:has(#theme-dark:checked) form[aria-label='Theme'] label[for='theme-dark'] {
 	background: color-mix(in srgb, var(--color-primary) 16%, transparent);
 	border-color: color-mix(in srgb, var(--color-primary) 40%, var(--color-border));
 }
