@@ -21,9 +21,7 @@
 		<link rel="manifest" href="./manifest.json" />
 	</head>
 	<body>
-		<input type="radio" name="theme" id="theme-auto" hidden checked />
-		<input type="radio" name="theme" id="theme-light" hidden />
-		<input type="radio" name="theme" id="theme-dark" hidden />
+		<input type="checkbox" name="theme" id="theme-toggle" hidden autocomplete="off" />
 		<div class="app">
 			<header>
 				<nav>
@@ -36,23 +34,24 @@
 					</ul>
 				</nav>
 				<!--
-				Theme Toggle: Pedagogical Explanation
+				----------------------------------------------------------------
+				Theme Toggle: Pure CSS Dark/Light Mode Switch
+				----------------------------------------------------------------		
 
-				This form provides a CSS-only theme toggle. It uses three radio inputs for 'Auto,' 'Light,' and 'Dark' themes. 
-				Each input has a unique id, and the corresponding labels serve as clickable toggle buttons.
-				- All inputs are 'hidden' to show only the styled label buttons.
-				- The checked input determines the selected theme. 
-				- Modern CSS (see site.css) uses :root:has(#theme-light:checked), etc., to set theme variables.
-				- "Auto" means the site will follow the user's system preference (light/dark).
-				- "Light" and "Dark" force the explicit color theme, regardless of system setting.
+					- The <input type="checkbox" id="theme-toggle"> acts as the toggle controller. It's visually hidden but accessible.
+					- The <label for="theme-toggle"> acts as the toggle button. Clicking it checks or unchecks the checkbox.
 
-				This approach does not require JavaScript. All logic is handled in CSS using the 'has()' selector and custom properties.
-			-->
-				<form class="cluster" style="justify-content: flex-end; margin-top: var(--space-2)" aria-label="Theme">
-					<label for="theme-auto" class="btn btn--ghost" style="height: auto; padding: 0.4rem 0.6rem">Auto</label>
-					<label for="theme-light" class="btn btn--ghost" style="height: auto; padding: 0.4rem 0.6rem">Light</label>
-					<label for="theme-dark" class="btn btn--ghost" style="height: auto; padding: 0.4rem 0.6rem">Dark</label>
-				</form>
+					How the styling works:
+					- By default, the site uses the light color palette.
+					- If your device prefers a dark color scheme (via @media (prefers-color-scheme: dark)), the site switches to dark, but only while the checkbox is NOT checked.
+					- If the checkbox IS checked, it forces dark mode regardless of system preference.
+					- All mode switching is handled in CSS using :has(), sibling selectors, and custom properties (CSS variables).
+					- No JavaScript is needed.
+
+					This ensures accessibility (keyboard- and screen reader-friendly) with instant theme switching.
+				-->
+
+				<label for="theme-toggle" aria-label="Theme" class="theme-toggle-button">Toggle Theme</label>
 			</header>
 			<main>
 				<section>

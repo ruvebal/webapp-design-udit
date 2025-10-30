@@ -244,7 +244,9 @@ footer {
 header {
 	padding-block: var(--space-4);
 	border-bottom: 1px solid var(--color-border);
-	background-color: color-mix(in srgb, var(--color-background) 88%, transparent);
+	/* The previous background-color using color-mix doesn't work in all browsers. 
+	   Use a more widely supported approach for semi-transparency: */
+	background-color: rgba(var(--color-background-rgb), 0.88); /* 88% opacity */
 	backdrop-filter: saturate(180%) blur(6px);
 }
 
@@ -336,19 +338,37 @@ header nav a:focus-visible {
 	outline-offset: 2px;
 }
 
-/* Theme toggle styling (no-JS radios) */
-form[aria-label='Theme'] label {
-	border-color: var(--color-border);
+/* Theme toggle button styling */
+.theme-toggle-button {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	padding: 0.5rem 1rem;
+	border: 1px solid var(--color-border);
+	border-radius: var(--radius-s);
 	background: color-mix(in srgb, var(--color-foreground) 3%, transparent);
 	color: var(--color-foreground);
+	cursor: pointer;
+	transition: background-color var(--fast) var(--ease-out), border-color var(--fast) var(--ease-out),
+		color var(--fast) var(--ease-out);
+	font-size: var(--text-sm);
+	font-weight: 600;
 }
 
-/* Highlight active label for theme radios */
-:root:has(#theme-auto:checked) form[aria-label='Theme'] label[for='theme-auto'],
-:root:has(#theme-light:checked) form[aria-label='Theme'] label[for='theme-light'],
-:root:has(#theme-dark:checked) form[aria-label='Theme'] label[for='theme-dark'] {
+.theme-toggle-button:hover {
+	background: color-mix(in srgb, var(--color-foreground) 8%, transparent);
+}
+
+/* Highlight when toggle is checked (dark mode active) */
+#theme-toggle:checked ~ * .theme-toggle-button {
 	background: color-mix(in srgb, var(--color-primary) 16%, transparent);
 	border-color: color-mix(in srgb, var(--color-primary) 40%, var(--color-border));
+	color: var(--color-primary);
+}
+
+.theme-toggle-button:focus-visible {
+	outline: 3px solid var(--color-ring);
+	outline-offset: 2px;
 }
 
 /* ------------------------------ */
